@@ -60,11 +60,11 @@ function run() {
         }, 1000);
     });
 }
- 
+
 async function process() {
     await run();
     await run();
     console.log('Done !!!');
 }
- 
+
 process();
