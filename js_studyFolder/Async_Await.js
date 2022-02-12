@@ -1,14 +1,50 @@
-async function fetchAndPrint() {
-  console.log(2);
-  const response = await fetch('https://www.google.com');
-  console.log(7);
-  const result = await response.text();
-  console.log(result);
+//async & await
+//clear style of using promise :)
+
+//1. async
+async function fetchUser(){
+  return ('ko');
 }
 
-console.log(1);
-fetchAndPrint();
-console.log(3);
-console.log(4);
-console.log(5);
-console.log(6);
+const user = fetchUser();
+user.then(console.log);
+console.log(user);
+
+
+// 2. await
+function delay(ms){
+  return new Promise(resolve => setTimeout(resolve,ms));
+}
+
+async function getApple(){
+  await delay(2000);
+  return 'apple';
+}
+
+async function getBanana(){
+  await delay(1000);
+  return 'banana';
+}
+// async function pickFruits(){
+//   const applePromise = getApple();
+//   const bananaPromise = getBanana();
+//   const apple = await applePromise;
+//   const banana = await bananaPromise;
+//   return `${apple} + ${banana}`;
+// }
+
+//pickFruts().then(console.log);
+
+//3. useful Promise APIs
+
+function pickAllFruits(){
+  return Promise.all([getApple(),getBanana()])
+  .then(fruits => fruits.join(' + '));
+}
+pickAllFruits().then(console.log)
+
+function pickOnlyOne(){
+  return Promise.race([getApple(), getBanana()]);
+}
+
+pickOnlyOne().then(console.log);
