@@ -3,4 +3,4 @@
 ## 2022-02-12 create studyfolder
 ## 2022-02-13 study Javascript
 ### https://kangax.github.io/compat-table/es6/
-### nodemon start : nps nodemon ' ' <- filename
+### nodemon start : npx nodemon ' ' <- filename
